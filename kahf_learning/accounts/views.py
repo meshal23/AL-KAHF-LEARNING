@@ -5,6 +5,6 @@ def index(request):
     return render(request, 'index.html')
 
 @login_required
-def secret(request):
+def secret(request): 
     return render(request, 'secret.html')
 
