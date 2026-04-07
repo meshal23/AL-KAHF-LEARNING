@@ -38,3 +38,25 @@
         - if we click the email link and confirm, and check in the accounts_emailaddress table verfied turns to 1
     - #### adding multiple email addresses for one user
         - go to http://127.0.0.1:8000/accounts/email/ and add the email, check accounts_emailaddress table
+
+## 3.customizing the registration form
+- https://docs.allauth.org/en/latest/account/configuration.html here go to SignUp section
+- there ACCOUNT_SIGNUP_FIELDS we define in settings.py as ['email', 'password1','password2'] (see settings.py)
+- ACCOUNT_LOGIN_METHODS = {'email', 'username'} this will ask you can either add username or email
+- ACCOUNT_EMAIL_VERIFICATION_BY_CODE_ENABLED = True
+for this you should set ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+this will only show email field for signup, if you add your email this will send a code for your email, then you paste that code here
+- this method of authentication now available for login also
+
+## 4.django-allauth views and forms
+- go to https://docs.allauth.org/en/latest/account/views.html ,
+- these are customizable by extending these classes
+- https://docs.allauth.org/en/latest/account/forms.html , you can extend these forms and you can customize by your needs
+- https://docs.allauth.org/en/latest/account/decorators.html ,
+    - for example there is verified_email_required decorator you add on a view so that view function will only accessed by email verification
+- there is also something called ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE , log a user out when password change happens you set this on settings.py
+- also there is signals emitting througout the authentication process https://docs.allauth.org/en/latest/account/signals.html you can notify or something with it
+- Rate Limits
+    - https://docs.allauth.org/en/latest/account/rate_limits.html
+    - we can access through ACCOUNT_RATE_LIMITS setting
+    - we can set many limits for example "change_password" (default: "5/m/user") means per user only 5 times to request change password api for a minute
