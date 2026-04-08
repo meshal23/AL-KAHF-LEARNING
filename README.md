@@ -70,3 +70,18 @@ this will only show email field for signup, if you add your email this will send
   - create forms.py and create CustomSignupForm class (see in forms.py)
   - now go to settings.py and add ACCOUNT_SIGNUP_FORM_CLASS (see in forms.py)
   - now add the user to UserProfile table with phone_no field that is not in the default django user table, for that in forms.py we set the signup() after we save the user into the db (see in forms.py -> CustomSignupForm class)
+
+## 6. views, templates customizations
+- go to https://docs.allauth.org/en/latest/account/views.html , it's very easy to extend these views and create our own class based views inherit from these and point to url of our custom class
+- #### 1. override the default allauth signup view
+  - in the views.py import messages(django.contrib), SignupView(allauth.account.views), app_settings(allauth.account) [see views.py]
+  - create CustomSignupView class (see views.py) and override the form_valid method given from allauth SignupView class (see in views.py)
+  - and for tell django to use this custom signup view go to main urls.py and add our CustomSignupView as same url of the allauth signup path
+  - go to the template (the template the signup will redirect) and show the messages (secret.html)
+- #### 2. adding custom context data ti SignupView
+  - like before we override the built in get_context_data() method and add custom attractive message to get users to signup (see views.py)
+  - to display that message in the docs https://docs.allauth.org/en/latest/common/templates.html , now we're going to override the built in template
+  - go to https://codeberg.org/allauth/django-allauth/src/branch/main/allauth/templates , then copy the signup.html
+  - create templates --> accounts --> signup.html and paste the code , the path is very important, now you can modify the template  from here
+  - now you can add your custom message in your signup template (see in accounts/signup.html)
+  - developer copy all templates and style when they want
