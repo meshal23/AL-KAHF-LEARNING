@@ -141,3 +141,5 @@ ACCOUNT_EMAIL_VERIFICATION = 'optional' # this is allauth specific
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 LOGIN_REDIRECT_URL = 'secret' #this is django specific
+
+ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
