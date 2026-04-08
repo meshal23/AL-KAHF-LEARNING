@@ -60,3 +60,13 @@ this will only show email field for signup, if you add your email this will send
     - https://docs.allauth.org/en/latest/account/rate_limits.html
     - we can access through ACCOUNT_RATE_LIMITS setting
     - we can set many limits for example "change_password" (default: "5/m/user") means per user only 5 times to request change password api for a minute
+
+## 5. customizing django allauth - custom signup forms and logic
+- how to add extra fields for the signup page
+  - models.py create UserProfile model (see in models.py) - this is how you override the default User model that given by django then you can add the custom fields for UserProfile model
+  - the you makemigrations, migrate
+- add the custom fields in allauth signup form
+  - https://docs.allauth.org/en/latest/account/configuration.html , here go to Signup section , there you can see ACCOUNT_SIGNUP_FORM_CLASS
+  - create forms.py and create CustomSignupForm class (see in forms.py)
+  - now go to settings.py and add ACCOUNT_SIGNUP_FORM_CLASS (see in forms.py)
+  - now add the user to UserProfile table with phone_no field that is not in the default django user table, for that in forms.py we set the signup() after we save the user into the db (see in forms.py -> CustomSignupForm class)
