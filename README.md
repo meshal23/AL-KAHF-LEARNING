@@ -85,3 +85,11 @@ this will only show email field for signup, if you add your email this will send
   - create templates --> accounts --> signup.html and paste the code , the path is very important, now you can modify the template  from here
   - now you can add your custom message in your signup template (see in accounts/signup.html)
   - developer copy all templates and style when they want
+
+  ## 7. allauth signals
+  - when user register or confirm email address etc, wire up a signal to react for those events
+  - https://docs.allauth.org/en/latest/account/signals.html
+  - create signals.py inside our project
+  - add custom email_confirmed_handler() to excute when email_confirmed signal trigger (see signals.py)
+  - run the server and signup , an email verification lik will be sent, before you confirm the email, first we import our signals to apps.py in built in ready() method (see in apps.py)
+  - so in our UserProfile table there is a column email_verifed_at we're going to fill with this signal (see signal.py)
