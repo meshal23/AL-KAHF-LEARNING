@@ -2,7 +2,7 @@
 
 - https://docs.allauth.org/en/latest/installation/quickstart.html
 
-## 1. install django-allauth
+## 1. install django-allauth 
 
 - uv add django-allauth
 - settings.py add AUTHENTICATION_BACKENDS (in the docs)
@@ -112,3 +112,12 @@
 - get oAuth credentials
   - create a project in google cloud
   - see the workflow in AL KAHF LEARNING RESOURCES folder/ set up google social signup
+- access social account's data
+  - go to https://docs.allauth.org/en/latest/socialaccount/templates.html 
+  - go to secret.html and analyze the docs template tags to see how it's implemented
+  - another template tag implemented in index.html
+  - let's say another scenario, a user has an account johndoe@gmail.com and you created that account using username, password after you trying to signin with your google account with this same email address, what should happen
+    - SOCIALACCOUNT_EMAIL_AUTHENTICATION, this is when social email address already taken by the local user by default it is False if you go to setting.py and adjust SOCIALACCOUNT_PROVIDERS, set 'EMAIL_AUTHENTICATION': True,
+    and then only SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True,
+    if you set this the social account automatically connect with local account
+    - this only possible if your email is verified
