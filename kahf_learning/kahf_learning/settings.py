@@ -149,12 +149,15 @@ ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
+        'EMAIL_AUTHENTICATION': True,
         'SCOPE': [
             'profile',
             'email',
         ],
     }
 }
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
 
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 SOCIALACCOUNT_ENABLED = True
