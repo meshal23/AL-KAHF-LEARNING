@@ -121,3 +121,17 @@
     and then only SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True,
     if you set this the social account automatically connect with local account
     - this only possible if your email is verified
+  
+## 9. with multiple providers (github)
+- https://docs.allauth.org/en/latest/socialaccount/providers/github.html
+- register your application here https://github.com/settings/applications/new
+- you add http://127.0.0.1:8000/accounts/github/login/callback/ exactly as callback url
+- register your app
+- in settings.py add github in INSTALLED_APPS
+- in settings.py configure github in SOCIALACCOUNT_PROVIDERS
+- django admin add github in social_applications table
+- that's it
+- how can i add social accounts for existing users
+  - just go to the allauth signin page and signup then click email --> Account settings add your new github there
+- adding github profile
+  - secret.html 
