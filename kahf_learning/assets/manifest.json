@@ -1,0 +1,11 @@
+{
+  "kahf_learning/static/js/main.js": {
+    "file": "django-assets/test-D8OpGMGJ.js",
+    "name": "test",
+    "src": "kahf_learning/static/js/main.js",
+    "isEntry": true,
+    "css": [
+      "django-assets/test-BykIlmT0.css"
+    ]
+  }
+}
