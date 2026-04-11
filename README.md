@@ -135,3 +135,23 @@
   - just go to the allauth signin page and signup then click email --> Account settings add your new github there
 - adding github profile
   - secret.html 
+
+## 10. Multi factor authentication (MFA)
+- https://docs.allauth.org/en/latest/mfa/introduction.html
+- mfa, enhace security, protect against phishing, identity verification
+- uv add "django-allauth[mfa]"
+- add "allauth.mfa" in INSTALLED_APPS in settings.py --> uv run manage.py migrate
+- this will create mfa_authenticator table in the db
+- you also set mfa pattern in the main urls.py (see main urls.py)
+- Now we're going to configure our app to mfa https://docs.allauth.org/en/latest/mfa/configuration.html
+- now we can add 2 factor authentication after we sign in , then set up with authenticator with qrcode then we all setup
+- take a look at mfa_authenticator table , the user will connected to two factor authentication
+- #### usage of recovery codes
+  - let's say you lost your phone so your authenticator app gone, but you still want to access the web app how to dothis
+  - you just add one of the recovery codes you have downloaded rather than add the code thaat authenticator gives to you
+- #### adding middleware
+  - reason is if we decide all users must set mfa to use this webapp
+  - when a user sign in, when the user not have authenticator installed we redirect to this two factor authentication page
+  - create middleware.py inside you app (accounts) (see middleware.py)
+  - add this middleware in settings.py
+  - very important you should add below "django.contrib.auth.middlewareAuthenticationMiddleware" because middleware are executing one by one and we should add this middleware after user is authenticated
