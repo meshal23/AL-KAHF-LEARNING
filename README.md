@@ -2,7 +2,7 @@
 
 - https://docs.allauth.org/en/latest/installation/quickstart.html
 
-## 1. install django-allauth 
+## 1. install django-allauth
 
 - uv add django-allauth
 - settings.py add AUTHENTICATION_BACKENDS (in the docs)
@@ -113,16 +113,17 @@
   - create a project in google cloud
   - see the workflow in AL KAHF LEARNING RESOURCES folder/ set up google social signup
 - access social account's data
-  - go to https://docs.allauth.org/en/latest/socialaccount/templates.html 
+  - go to https://docs.allauth.org/en/latest/socialaccount/templates.html
   - go to secret.html and analyze the docs template tags to see how it's implemented
   - another template tag implemented in index.html
   - let's say another scenario, a user has an account johndoe@gmail.com and you created that account using username, password after you trying to signin with your google account with this same email address, what should happen
     - SOCIALACCOUNT_EMAIL_AUTHENTICATION, this is when social email address already taken by the local user by default it is False if you go to setting.py and adjust SOCIALACCOUNT_PROVIDERS, set 'EMAIL_AUTHENTICATION': True,
-    and then only SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True,
-    if you set this the social account automatically connect with local account
+      and then only SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True,
+      if you set this the social account automatically connect with local account
     - this only possible if your email is verified
-  
+
 ## 9. with multiple providers (github)
+
 - https://docs.allauth.org/en/latest/socialaccount/providers/github.html
 - register your application here https://github.com/settings/applications/new
 - you add http://127.0.0.1:8000/accounts/github/login/callback/ exactly as callback url
@@ -134,9 +135,10 @@
 - how can i add social accounts for existing users
   - just go to the allauth signin page and signup then click email --> Account settings add your new github there
 - adding github profile
-  - secret.html 
+  - secret.html
 
 ## 10. Multi factor authentication (MFA)
+
 - https://docs.allauth.org/en/latest/mfa/introduction.html
 - mfa, enhace security, protect against phishing, identity verification
 - uv add "django-allauth[mfa]"
@@ -155,3 +157,17 @@
   - create middleware.py inside you app (accounts) (see middleware.py)
   - add this middleware in settings.py
   - very important you should add below "django.contrib.auth.middlewareAuthenticationMiddleware" because middleware are executing one by one and we should add this middleware after user is authenticated
+
+## 11. all-auth-ui
+
+- provides nice looking ui for django allauth
+- https://github.com/danihodovic/django-allauth-ui
+- uv add django-allauth-ui
+- in settings.py
+  - add allauth_ui in INSTALLED_APPS, before django_allauth
+  - then also add widget_tweaks, slipper at the bottom
+- this will create nice looking forms in allauth pages (under hood tailwind + daisyui)
+- add daisyui themes (dark, light, cupcake)
+  - settings.py add ALLAUTH_UI_THEME = 'cupcake'
+- internationalisation using multiple languages
+  - in settings.py LANGUAGE_CODE = 'fr' will set your sign up page in french
