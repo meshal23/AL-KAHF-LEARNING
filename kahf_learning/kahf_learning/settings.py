@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import accounts
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,6 +32,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",
+    "unfold.contrib.import_export",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts",
     "django_vite",
+    "import_export",
 ]
 
 MIDDLEWARE = [
@@ -131,4 +135,9 @@ DJANGO_VITE = {
   "default": {
     "dev_mode": True #in production we set this to False
   }
+}
+
+UNFOLD = {
+    "SITE_HEADER": "AL KAHF ADMIN DASHBOARD",
+    # more settings in the django-unfold documentation
 }
