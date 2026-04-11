@@ -23,5 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/signup/", CustomSignupView.as_view(), name='account-signup'),
     path('accounts/', include('allauth.urls')),
+    path('accounts/mfa', include('allauth.mfa.urls')),
     path("", include("accounts.urls")),
 ]
