@@ -15,6 +15,7 @@ dependencies = [
     { name = "colorama" },
     { name = "dj-database-url" },
     { name = "django" },
+    { name = "django-cotton" },
     { name = "django-extensions" },
     { name = "django-import-export" },
     { name = "django-storages" },
@@ -45,6 +46,7 @@ requires-dist = [
     { name = "colorama", specifier = "==0.4.6" },
     { name = "dj-database-url", specifier = "==3.1.2" },
     { name = "django", specifier = "==5.2.12" },
+    { name = "django-cotton", specifier = ">=2.6.2" },
     { name = "django-extensions", specifier = "==3.2.3" },
     { name = "django-import-export", specifier = ">=4.4.0" },
     { name = "django-storages", specifier = "==1.14.6" },
@@ -194,6 +196,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/bd/55/b9445fc0695b03746f355c05b2eecc54c34e05198c686f4fc4406b722b52/django-5.2.12.tar.gz", hash = "sha256:6b809af7165c73eff5ce1c87fdae75d4da6520d6667f86401ecf55b681eb1eeb", size = 10860574, upload-time = "2026-03-03T13:56:05.509Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/4e/32/4b144e125678efccf5d5b61581de1c4088d6b0286e46096e3b8de0d556c8/django-5.2.12-py3-none-any.whl", hash = "sha256:4853482f395c3a151937f6991272540fcbf531464f254a347bf7c89f53c8cff7", size = 8310245, upload-time = "2026-03-03T13:56:01.174Z" },
+]
+
+[[package]]
+name = "django-cotton"
+version = "2.6.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/49/bf/56875c0a31f601bd1e6d19eecd58a8e40ec6cf793e8d12043b6dc8196b06/django_cotton-2.6.2.tar.gz", hash = "sha256:d4131517d8ec1080495a4779fb8d984264d671e6c850f4fa34c14822817dd693", size = 31854, upload-time = "2026-03-13T23:05:57.322Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/0b/b0/be3e3d8654196f69390ed0a2a459e80066a345e184d8364b178fdf149dcd/django_cotton-2.6.2-py3-none-any.whl", hash = "sha256:292d35ad2d2c1da4ae21e688cc44aa18f84716ab64a619ff7b7296e0e30275fc", size = 30910, upload-time = "2026-03-13T23:05:58.258Z" },
 ]
 
 [[package]]
