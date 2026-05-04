@@ -1,0 +1,1 @@
+var e=(e,t)=>()=>(e&&(t=e(e=0)),t),t=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),n=e((()=>{}));function r(e){console.log(`Hello, ${e}`)}var i=e((()=>{})),a=t((()=>{n(),i(),console.log(`Hello from vite`),r(`BugBytes`)}));export default a();

@@ -1,0 +1,33 @@
+{
+  "name": "al-kahf-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meshal23/AL-KAHF-LEARNING.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/meshal23/AL-KAHF-LEARNING/issues"
+  },
+  "homepage": "https://github.com/meshal23/AL-KAHF-LEARNING#readme",
+  "devDependencies": {
+    "daisyui": "^5.5.19",
+    "vite": "^8.0.8"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "alpinejs": "^3.15.11",
+    "flowbite": "^4.0.1",
+    "htmx.org": "^2.0.8",
+    "tailwindcss": "^4.2.2"
+  }
+}
