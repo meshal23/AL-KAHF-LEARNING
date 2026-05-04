@@ -17,8 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from accounts.views import CustomSignupView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/signup/", CustomSignupView.as_view(), name='account-signup'),
+    path('accounts/', include('allauth.urls')),
+    path('accounts/mfa', include('allauth.mfa.urls')),
     path("", include("accounts.urls")),
 ]

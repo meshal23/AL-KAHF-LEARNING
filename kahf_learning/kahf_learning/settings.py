@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "unfold",
     "unfold.contrib.import_export",
+    "allauth_ui",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,6 +45,17 @@ INSTALLED_APPS = [
     "django_vite",
     "import_export",
     "django_cotton",
+    "django.contrib.sites",
+    # "accounts",
+    "accounts.apps.AccountsConfig",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.github",
+    "allauth.mfa",
+    "widget_tweaks",
+    "slippers",
 ]
 
 MIDDLEWARE = [
@@ -52,8 +64,10 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "accounts.middleware.MFARequiredMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "kahf_learning.urls"
@@ -138,6 +152,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'assets'
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+SITE_ID = 1
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -154,3 +169,43 @@ UNFOLD = {
     "SITE_HEADER": "AL KAHF ADMIN DASHBOARD",
     # more settings in the django-unfold documentation
 }
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+]
+
+ACCOUNT_EMAIL_VERIFICATION = 'optional' # this is allauth specific
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+LOGIN_REDIRECT_URL = 'secret' #this is django specific
+
+ACCOUNT_SIGNUP_FORM_CLASS = 'accounts.forms.CustomSignupForm'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'EMAIL_AUTHENTICATION': True,
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+    },
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    }
+}
+
+SOCIALACCOUNT_EMAIL_AUTHENTICATION_AUTO_CONNECT = True
+
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+SOCIALACCOUNT_ENABLED = True
+
+ALLAUTH_UI_THEME = 'cupcake'
